@@ -1,3 +1,5 @@
+import Music from './music';
+
 export default function LoginForm() {
     return ( 
         <div className="center bg-black bg-opacity-70 rounded-lg text-white flex flex-col p-5">
@@ -28,6 +30,8 @@ export default function LoginForm() {
             <button className="text-blue-400"> Sign up</button>
             </div>
             <button> Bypass</button> 
+            <Music></Music>
+         
            
         </div>
     )
