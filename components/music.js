@@ -9,34 +9,24 @@ const Music = () => {
     setIsMuted(!isMuted);
   };
 
-  useEffect(() => {
-    const handleClick = () => {
+  const handleClick = () => {
+    if (audioRef.current) {
       audioRef.current.play();
-    };
-
-    document.body.addEventListener("click", handleClick);
-
-    return () => {
-      document.body.removeEventListener("click", handleClick);
-    };
-  }, []);
+      document.removeEventListener("click", handleClick);
+    }
+  };
 
   useEffect(() => {
-    const handleAudioEnded = () => {
-      audioRef.current.currentTime = 0; // Reinicia a reprodução para o início
-      audioRef.current.play(); // Inicia a reprodução novamente
-    };
-
-    audioRef.current.addEventListener("ended", handleAudioEnded);
+    document.addEventListener("click", handleClick);
 
     return () => {
-      audioRef.current.removeEventListener("ended", handleAudioEnded);
+      document.removeEventListener("click", handleClick);
     };
   }, []);
 
   return (
     <div>
-      <audio ref={audioRef}>
+      <audio ref={audioRef} autoPlay>
         <source src="village.mp3" type="audio/mpeg" />
       </audio>
       <button onClick={handleMuteUnmute}>{isMuted ? "Unmute" : "Mute"}</button>

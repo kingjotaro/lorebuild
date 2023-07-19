@@ -1,7 +1,20 @@
-import Music from './music';
 
-export default function LoginForm() {
-    return ( 
+import Selection from "./selection";
+import Music from "./music";
+export default function LoginForm(props) {
+    const {bypass, setBypass} = props;
+
+    const handleBypassClick = () => {
+        setBypass(true);
+      };
+
+
+      if (bypass) {
+        return (
+            <Selection></Selection>
+        ); 
+      } else {
+        return (
         <div className="center bg-black bg-opacity-70 rounded-lg text-white flex flex-col p-5">
             <h1 className="text-center font-bold text-2xl mb-5">Login to your account</h1>
 
@@ -29,7 +42,7 @@ export default function LoginForm() {
             <div>Dont have an account?</div>
             <button className="text-blue-400"> Sign up</button>
             </div>
-            <button> Bypass</button> 
+            <button onClick={handleBypassClick}>Bypass</button>
             <Music></Music>
          
            
@@ -37,3 +50,6 @@ export default function LoginForm() {
     )
     
 };
+
+     
+    }
