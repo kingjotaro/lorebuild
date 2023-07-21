@@ -16,7 +16,7 @@ export default function LoginForm(props) {
       } else {
         return (
         <div className="center bg-black bg-opacity-70 rounded-lg text-white flex flex-col p-5">
-            <h1 className="text-center font-bold text-2xl mb-5">Login to your account</h1>
+            <h1 className="text-center font-bold text-2xl mb-5">Em dev, clique em Bypass</h1>
 
             <div className=" flex flex-col">
             <div className="text-gray-50">Email</div>
